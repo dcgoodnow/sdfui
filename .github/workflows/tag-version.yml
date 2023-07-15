@@ -1,0 +1,39 @@
+name: Tag New version
+
+on: 
+  workflow_call:
+    outputs:
+      tagversion:
+        description: "New tag for the build"
+        value: ${{ jobs.tag.outputs.tagversion }}
+    inputs:
+      dryrun:
+        description: "Whether or not to skip the git tag step"
+        default: false
+        required: false
+        type: boolean
+      prerelease:
+        description: "Whether or not this is a prerelease build"
+        default: false
+        required: false
+        type: boolean
+
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+    outputs:
+      tagversion: ${{ steps.tagversion.outputs.new_tag }}
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 10
+      - name: Tag new version
+        id: tagversion
+        uses: anothrNick/github-tag-action@1.61.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WITH_V: true
+          DRY_RUN: ${{ inputs.dryrun }}
+          PRERELEASE: ${{ inputs.prerelease }}
+          PRERELEASE_SUFFIX: ${{ github.head_ref || github.ref_name }}-pre

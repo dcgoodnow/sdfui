@@ -1,0 +1,17 @@
+{
+    "name": "com.dcgoodnow.sdfui",
+    "version": "0.0.0",
+    "displayName": "SDF UI",
+    "description": "This package provides support for using SDFs as the base element in Unity UIs",
+    "unity": "2022.2",
+    "dependencies": {
+    },
+    "keywords": [
+        "Unity"
+    ],
+    "author": {
+        "name": "Daniel Goodnow",
+        "email": "danielgoodnow@gmail.com",
+        "url": "https://www.danielgoodnow.com"
+    }
+}
