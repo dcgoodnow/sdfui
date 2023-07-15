@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: UIRect
-  m_Shader: {fileID: 4800000, guid: 1d68f8f6aef089f4f90f796c81143bee, type: 3}
+  m_Shader: {fileID: 4800000, guid: d48dc382b895bc542aa777a4e67802ae, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
