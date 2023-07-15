@@ -8,21 +8,21 @@ on:
 jobs:
   fetch-version:
     name: Fetch Next Version
-    uses: dcgoodnow/sdfui/.github/workflows/tag-version.yml@main
+    uses: dcgoodnow/sdfui/.github/workflows/tag-version.yml@add-ui-rect
     with:
       dryrun: true
       prerelease: true
   publish-npm:
     name: Publish package to NPM
     needs: fetch-version
-    uses: dcgoodnow/sdfui/.github/workflows/upload-package.yml@main
+    uses: dcgoodnow/sdfui/.github/workflows/upload-package.yml@add-ui-rect
     secrets: inherit
     with:
       version: ${{ needs.fetch-version.outputs.tagversion }}
   tag-commit:
     name: Tag new commit
     needs: publish-npm
-    uses: dcgoodnow/sdfui/.github/workflows/tag-version.yml@main
+    uses: dcgoodnow/sdfui/.github/workflows/tag-version.yml@add-ui-rect
     secrets: inherit
     permissions: 
       contents: write
