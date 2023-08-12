@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 [RequireComponent(typeof(CanvasRenderer))]
 [AddComponentMenu("UI/Rect")]
-public class UIRect : Graphic
+public class UIRect : MaskableGraphic
 {
 
     [SerializeField] private Vector4 _radii;
